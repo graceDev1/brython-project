@@ -16,14 +16,29 @@
 		<button id="btn-alert" class="btn btn-success">Alert & Insert</button>
 		<span id="output"></span>
 
+		<h2 id="greet">Hello {name}</h2>
 
-		<script type="text\python" id="script0">
+		<button class="btn btn-primary" id="joken-btn">Get Joke</button>
+		<div class="card mt-4" id="joke">Click "get joke" Button </div>
+
+
+
+		<script type="text/python" id="script0">
 			from browser import document, console, alert 
 			def show(e):
 				console.log(e)
 				alert('Hello world ')
 				document['hello'] <= 'hello world'
 			document['btn-alert'].bind('click',show)
+		</script>
+		
+		<!--Binding Text-->
+
+		<script type="text/python" id="script1">
+			from browser import document
+			def show_text(e):
+				document['ouput'].textContent = e.target.value
+			document['text'].bind('input',show_text)
 		</script>
 	</div>
 </body>
