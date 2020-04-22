@@ -28,9 +28,14 @@
 		<div class="card">
 			<div class="card-body">
 				<button class="btn btn-success" id="btn-rotate">Rotate</button>
-				<div style="width: 45; height: 45; background-color: brown;" class="mt-4" id="rotate-box"></div>
+				<div style="background-color: black; width: 40px; height: 40;" class="mt-2" id="rotate-box"></div>
 			</div>
 		</div>
+
+		<h2>Save Item: <span id="item"></span></h2>
+		<input type="text" class="form-control" id="item-input" placeholder="Add the local storage">
+		<button class="btn btn-success" id="add-btn">Add</button>
+		<button class="btn btn-danger" id="remov-btn">Remove</button>
 
 
 
@@ -109,6 +114,28 @@
 				angle += 10
 			document['rotate-btn'].bind('click', change)
 		</script>
+
+		<!-- Local Storage-->
+		<script type="text/python" id="script1">
+			from browser import document, html, window,console
+
+			storage = window.localStorage
+
+			if storage.getItem('item'):
+				document['item'] <= storage.getItem('item')
+			
+			def add_item(e):
+				item = document['item-input'].value 
+				storage.setItem('item',item)
+				document['item'].textContent = item 
+
+			def remove_item(e):
+				storage.removeItem('item')
+				document['item'].textContent = ''
+			document['add-btn'].bind('click', add_item)
+			document['remov-btn'].bind('click', remove_item)
+		</script>
+
 	</div>
 </body>
 </html>
