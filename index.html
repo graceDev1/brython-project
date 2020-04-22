@@ -31,7 +31,7 @@
 				document['hello'] <= 'hello world'
 			document['btn-alert'].bind('click',show)
 		</script>
-		
+
 		<!--Binding Text-->
 
 		<script type="text/python" id="script1">
@@ -40,6 +40,16 @@
 				document['ouput'].textContent = e.target.value
 			document['text'].bind('input',show_text)
 		</script>
+
+		<!-- template and variable-->
+		<script type="text/python" id="script1">
+			from browser import document
+			from browser.template import Template 
+			Template(document['greet']).render(name="Grace")
+		</script>
+
+		<!--Ajax call -->
+		
 	</div>
 </body>
 </html>
