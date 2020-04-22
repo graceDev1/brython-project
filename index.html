@@ -24,7 +24,14 @@
 		<input type="file" class="mt-4" id="file-upload">
 		<br>
 		<textarea  id="file-text" cols="60" rows="10" class="mt-2"></textarea>
-		
+
+		<div class="card">
+			<div class="card-body">
+				<button class="btn btn-success" id="btn-rotate">Rotate</button>
+				<div style="width: 45; height: 45; background-color: brown;" class="mt-4" id="rotate-box"></div>
+			</div>
+		</div>
+
 
 
 
@@ -88,6 +95,19 @@
 				reader.readAsText(file)
 				reader.bind('load',onload)
 			document['file-upload'].bind('input', file_read)
+		</script>
+
+		<!-- rotate box-->
+		<script type="text/python" id="script1">
+			from browser import document, html 
+			box = document['rotate-box']
+			angle = 10
+
+			def change(e):
+				globale angle 
+				box.style.transform = f"rotate({angle}deg)"
+				angle += 10
+			document['rotate-btn'].bind('click', change)
 		</script>
 	</div>
 </body>
