@@ -14,6 +14,17 @@
 		<h1>Brython crash course</h1>
 		<h1 id="hello"></h1>
 		<button id="btn-alert" class="btn btn-success">Alert & Insert</button>
+		<span id="output"></span>
+
+
+		<script type="text\python" id="script0">
+			from browser import document, console, alert 
+			def show(e):
+				console.log(e)
+				alert('Hello world ')
+				document['hello'] <= 'hello world'
+			document['btn-alert'].bind('click',show)
+		</script>
 	</div>
 </body>
 </html>
